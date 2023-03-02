@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+:root{
+    /* font */
+    --FF: 'Patrick Hand', cursive;
+    --FS: 1.4rem;
+    /* color */
+    --BGCOLOR: #475569;
+    --ALT-BGCOLOR: rgb(0, 0, 139);
+    --GRADIENT-COLOR: rgb(0, 81, 128);
+    --LIGHT-COLOR: whitesmoke;
+    --DARK-COLOR: #000;
+    /* GENERAL */
+    --BORDERS: solid var(--DARK-COLOR);
+    --PADDING: 0.3em;
+    --SHADOWS: 0 15px 5px -5px var(--DARK-COLOR);
+    /* SQUARE */
+    --SQUARE-BGCOLOR: rgb(55, 0, 128);
+    --SQUARE-SIZE: max(150px, 20vw);
+}
+
+/* DARK-MODE THEME */
+@media(prefers-color-scheme: dark){
+    :root{
+        --BGCOLOR: rgb(29, 29, 29);
+        --ALT-BGCOLOR: #000;
+        --GRADIENT-COLOR: rgb(10, 18, 26);
+        --SQUARE-BGCOLOR: rgb(16, 1, 36);
+        --LIGHT-COLOR:rgb(202, 202, 202);
+    }
+}
+
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+    color: black;
+    font-size: var(--FS);
+    font-family: var(--FF);
+    background-color: var(--BGCOLOR);
+    background-image: linear-gradient(var(--GRADIENT-COLOR), var(--LIGHT-COLOR));
+    display: flex;
+    flex-direction: column;
+}
+
+header, nav, footer{
+    display: grid;
+    grid-template-columns:100%;
+    text-align: center;
+}
+
+
+
+header{
+    color: var(--LIGHT-COLOR);
+    top:0;
+    background-color: var(--ALT-BGCOLOR);
+    position: sticky;
+}
+nav{
+    color: var(--DARK-COLOR);
+    background-color: var(--LIGHT-COLOR);
+    padding: var(--PADDING);
+    border: var(--BORDERS);
+    border-bottom: 2px var(--BORDERS);
+    /* box-shadow: var(--SHADOWS); */
+}
+main{
+    /* height: 100%; */
+    flex-grow: 1;
+
+    /* align-content: center;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 300px));
+    /* flex-flow: row wrap; */
+    padding:var(--PADDING);
+    justify-content: space-between;
+    gap: min(2vw, 20px);
+}
+footer{
+    bottom:0;
+    color: var(--LIGHT-COLOR);
+    background-color: var(--ALT-BGCOLOR);
+    position: sticky;
+}
+
+/* ||FEATURES */
+.square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--SQUARE-BGCOLOR);
+    color: var(--LIGHT-COLOR);
+    /* width: var(--SQUARE-SIZE);
+    height: var(--SQUARE-SIZE); */
+    font-size: 50px;
+    padding: var(--PADDING);
+    border: var(--BORDERS);
+    border-radius: 15px;
+}
+
+.square-highlight{
+    --SQUARE-BGCOLOR: rgb(128, 0, 100);
+}
